@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  postgres:
+    container_name: daisy_pg
+    image: postgres
+    environment:
+      POSTGRES_USER: daisy_user
+      POSTGRES_PASSWORD: daisy_pass
+      POSTGRES_DB: daisy_db
+    env_file:
+      - ./.env
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  bot:
+    container_name: daisy_bot
+    build: .
+    env_file:
+      - ./.env
+    ports:
+      - "80:5000"
+    restart: unless-stopped
+    depends_on:
+      - postgres
