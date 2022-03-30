@@ -29,7 +29,7 @@ SETUP_KWARGS = dict(
     python_requires='>=3.8',
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
-    install_requires=load_requirements('requirements.txt'),
+    # install_requires=load_requirements('requirements.txt'),
     # extras_require={'dev': load_requirements('requirements.dev.txt')},
 )
 

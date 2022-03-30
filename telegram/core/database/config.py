@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     PROJECT_NAME: str = "DaisyKint"
     DB_PATH: Optional[str]
 
+    TOKEN: Optional[str]
     class Config:
         # uncomment when testing locally
         env_file = "./.env"

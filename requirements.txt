@@ -8,3 +8,7 @@ sqlalchemy~=1.4.25
 python-dotenv~=0.19.1
 asyncpg~=0.25.0
 redis~=4.1.4
+aioredis~=2.0.1
+aiogoogle~=3.2.1
+google_api_python_client~=2.41.0
+oauthlib~=3.2.0

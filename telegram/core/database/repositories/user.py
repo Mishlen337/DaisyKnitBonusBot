@@ -2,7 +2,7 @@ from sqlalchemy.ext.asyncio.session import AsyncSession
 from sqlalchemy.sql.expression import select, delete
 from typing import Optional, List, Union
 
-from create_table import User
+from ..create_table import User
 
 
 class UserRepository:

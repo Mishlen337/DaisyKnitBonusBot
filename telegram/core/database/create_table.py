@@ -7,7 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio.session import AsyncSession
 
-from config import settings
+from .config import settings
 
 
 convention = {
