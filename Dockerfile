@@ -1,11 +1,9 @@
-FROM python:3.10-slim
+FROM python:3.10
 
-COPY --from=base /usr/share/python3/app /usr/share/python3/app
+COPY ./telegram /telegram
+COPY ./requirements.txt /
 
-COPY requirements.txt /usr/share/python3/app/bot/requirements.txt
-WORKDIR /usr/share/python3/app/bot/
-RUN /usr/share/python3/app/bin/pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
-COPY . /usr/share/python3/app/bot
-
+CMD ["python3", "/telegram/main.py"]
 

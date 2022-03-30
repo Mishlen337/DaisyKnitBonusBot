@@ -20,21 +20,19 @@ services:
     container_name: daisy_bot
     build: .
     env_file:
-      - .env
-    command: >
-      bash -c "source /usr/share/python3/app/bin/activate
-      && cd /usr/share/python3/app/bot
-      && uvicorn main:app --host 0.0.0.0 --port 5000"
+      - ./.env
     ports:
-      - "80:5000"
+      - "80:80"
     restart: unless-stopped
     depends_on:
       - postgres
 
   redis:
+    container_name: daisy_redis
     image: 'bitnami/redis:latest'
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_AOF_ENABLED=no
     ports:
       - '6370:6379'
     volumes:

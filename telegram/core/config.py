@@ -1,5 +1,6 @@
 from pydantic import BaseSettings
 from aiogram import Dispatcher, Bot
+from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.contrib.fsm_storage.redis import RedisStorage2
 from typing import Optional
 
@@ -11,7 +12,7 @@ class Settings(BaseSettings):
             "host": self.REDIS_HOST,
             "port": self.REDIS_PORT,
             "password": None,
-            "db": self.REDIS_DB,
+            "db": self.REDIS_DB
         }
 
     WEBHOOK_URL: str
@@ -30,7 +31,7 @@ class Settings(BaseSettings):
 
 
 config = Settings()
-
+# storage = MemoryStorage()
 storage = RedisStorage2(**config.aiogram_redis)
 bot = Bot(token=config.TELEGRAM_SECRET)
 dp = Dispatcher(bot, storage=storage)
